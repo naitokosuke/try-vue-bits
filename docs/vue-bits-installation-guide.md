@@ -1,6 +1,6 @@
 # Vue Bits インストールガイド
 
-Vue Bitsは、アニメーション豊かなVueコンポーネントのオープンソースコレクションです。
+Vue Bits は、アニメーション豊かな Vue コンポーネントのオープンソースコレクションです。
 
 公式サイト: https://vue-bits.dev/
 
@@ -70,8 +70,7 @@ Yes を選択します。
 │  ● Yes / ○ No
 ```
 
-Yes を選択します。ウォーターマークは、コンポーネントファイルの先頭に jsrepo による自動生成コメントを追加する機能です。
-どのようなコメントが追加されるか確認するために Yes を選択します。
+Yes を選択します。ウォーターマークは、コンポーネントファイルの先頭に jsrepo による自動生成コメントを追加する機能です。どのようなコメントが追加されるか確認するために Yes を選択します。
 
 #### フォーマッターの選択
 
@@ -104,5 +103,97 @@ None を選択します。今回はフォーマッターを使用しません。
 ```
 src/
 └── components/
-    └── SpotlightCard.vue
+    └── SpotlightCard/
+        └── SpotlightCard.vue
 ```
+
+## Full CLI Setup
+
+上記の手順では、コンポーネントをインストールするたびに初期化確認が表示されます。
+
+Vue Bits 公式ドキュメント（https://vue-bits.dev/）の「Full CLI Setup」に記載されている方法を使うと、プロジェクト全体で jsrepo を設定でき、この確認を省略できます。
+
+### jsrepo の初期化
+
+#### コマンド実行
+
+```bash
+npx jsrepo init https://vue-bits.dev/ui
+```
+
+#### デフォルトインストールパスの指定
+
+```
+┌   jsrepo  v2.5.2
+│
+◆  Please enter a default path to install the blocks
+│  ./src/blocks
+```
+
+`./src/components` と入力します。コンポーネントを配置するデフォルトパスを指定します。
+
+#### フォーマッターの選択
+
+```
+◇  Please enter a default path to install the blocks
+│  ./src/components
+│
+◇  Which formatter would you like to use?
+│  None
+```
+
+None を選択します。
+
+#### 認証トークンの追加
+
+```
+●  Initializing https://vue-bits.dev/ui
+│
+◆  Would you like to add an auth token?
+│  ○ Yes / ● No
+```
+
+No を選択します。Vue Bits は公開リポジトリなので認証トークンは不要です。
+
+#### カテゴリパスの設定
+
+```
+◆  Which category paths would you like to configure?
+│  ◻ Animations
+│  ◻ Backgrounds
+│  ◻ Components
+│  ◻ TextAnimations
+```
+
+何も選択せずにそのまま Enter を押します。カテゴリごとに個別のパスを設定する必要はありません。
+
+#### 追加リポジトリの設定
+
+```
+◆  Add another repo?
+│  ○ Yes / ● No
+```
+
+No を選択します。Vue Bits のみを使用するため、他のリポジトリを追加する必要はありません。
+
+#### 完了
+
+jsrepo.json が作成されます。この設定により、以降のコンポーネントインストール時に初期化確認が表示されなくなります。
+
+### コンポーネント一覧から選択
+
+```bash
+npx jsrepo add
+```
+
+インタラクティブにコンポーネント一覧から選択できます。
+
+### 特定のコンポーネントを直接指定
+
+```bash
+npx jsrepo add TextAnimations/ShinyText
+npx jsrepo add Backgrounds/Aurora
+```
+
+コンポーネント名を直接指定してインストールできます。
+
