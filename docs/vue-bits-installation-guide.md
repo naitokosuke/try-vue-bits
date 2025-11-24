@@ -211,4 +211,3 @@ npx jsrepo add Backgrounds/Aurora
 ```
 
 コンポーネント名を直接指定してインストールできます。
-
