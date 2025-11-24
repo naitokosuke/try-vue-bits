@@ -207,7 +207,6 @@ npx jsrepo add
 
 ```bash
 npx jsrepo add TextAnimations/ShinyText
-npx jsrepo add Backgrounds/Aurora
 ```
 
 コンポーネント名を直接指定してインストールできます。
