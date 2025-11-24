@@ -186,6 +186,21 @@ jsrepo.json が作成されます。この設定により、以降のコンポ�
 npx jsrepo add
 ```
 
+コマンドを実行すると、利用可能なコンポーネントの一覧が表示されます。
+
+```
+┌   jsrepo  v2.5.2
+│
+◇  Retrieved blocks from https://vue-bits.dev/ui
+│
+◆  Select which blocks to add.
+│  ◻ Animations/AnimatedContent
+│  ◻ Animations/BlobCursor
+│  ◻ Animations/ClickSpark
+│  ◻ Animations/CountUp
+...
+```
+
 インタラクティブにコンポーネント一覧から選択できます。
 
 ### 特定のコンポーネントを直接指定
