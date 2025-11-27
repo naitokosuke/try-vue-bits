@@ -4,6 +4,32 @@ Vue Bits は、アニメーション豊かな Vue コンポーネントのオー
 
 公式サイト: https://vue-bits.dev/
 
+## 前提条件
+
+Vue Bits のコンポーネントは Tailwind CSS を使用しています。コンポーネントをインストールする前に、プロジェクトに Tailwind CSS をセットアップしてください。
+
+```bash
+ni -D tailwindcss @tailwindcss/vite
+```
+
+`vite.config.ts` に Tailwind プラグインを追加します。
+
+```ts
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+```
+
+CSS ファイル（例: `src/styles.css`）に Tailwind をインポートします。
+
+```css
+@import "tailwindcss";
+```
+
 ## インストール方法
 
 ### コマンド形式
