@@ -160,6 +160,14 @@ npx jsrepo@2.5.2 add Animations/GhostCursor
 
 Yes を選択すると、`three` パッケージが自動的にインストールされます。
 
+### GSAP を使用するコンポーネント
+
+```bash
+npx jsrepo@2.5.2 add Animations/AnimatedContent
+```
+
+Yes を選択すると、`gsap` パッケージが自動的にインストールされます。
+
 ## Full CLI Setup
 
 上記の手順では、コンポーネントをインストールするたびに初期化確認が表示されます。

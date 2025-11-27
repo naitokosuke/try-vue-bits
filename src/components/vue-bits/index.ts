@@ -1,3 +1,5 @@
 export { default as SpotlightCard } from './Components/SpotlightCard/SpotlightCard.vue'
 export { default as GradientText } from './TextAnimations/GradientText/GradientText.vue'
 export { default as GhostCursor } from './Animations/GhostCursor/GhostCursor.vue'
+export { default as AnimatedContent } from './Animations/AnimatedContent/AnimatedContent.vue'
+export { default as Iridescence } from './Backgrounds/Iridescence/Iridescence.vue'

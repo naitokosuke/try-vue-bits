@@ -1,24 +1,35 @@
 <script setup lang="ts">
-import { SpotlightCard, GradientText, GhostCursor } from './components/vue-bits'
+import {
+  SpotlightCard,
+  GradientText,
+  AnimatedContent,
+  Iridescence,
+  GhostCursor,
+} from './components/vue-bits'
 </script>
 
 <template>
-  <div class="min-h-screen">
-    <GhostCursor color="#3438F2" :z-index="-1" mix-blend-mode="normal" />
+  <div class="relative h-screen">
+    <div class="absolute inset-0">
+      <Iridescence :color="[0.2, 0.22, 0.95]" :speed="1.0" :amplitude="0.1" />
+    </div>
 
-    <div class="mx-auto max-w-xl p-8">
-      <h1 class="mb-8 text-2xl font-bold">Vue Bits Demo</h1>
+    <GhostCursor color="#3438F2" />
 
-      <GradientText
-        text="Gradient Text"
-        class="text-4xl font-bold mb-8"
-        :colors="['#3438F2', '#6366F1', '#3438F2']"
-      />
+    <div class="relative z-10 mx-auto max-w-xl p-8">
+      <AnimatedContent :threshold="0">
+        <GradientText
+          text="Vue Bits Demo"
+          class="text-4xl font-bold mb-8 rounded-none"
+          :colors="['#3438F2', '#6366F1', '#3438F2']"
+        />
+      </AnimatedContent>
 
-      <SpotlightCard class="bg-neutral-900 border-neutral-700 text-white" spotlightColor="#3438F2">
-        <h2 class="mb-2 text-lg font-semibold">SpotlightCard</h2>
-        <p class="opacity-80">マウスを動かすとスポットライトエフェクトが表示されます</p>
-      </SpotlightCard>
+      <AnimatedContent :threshold="0" :delay="0.2">
+        <SpotlightCard class="bg-neutral-900/80 border-neutral-700 text-white" spotlightColor="#3438F2">
+          <h2 class="text-lg font-semibold">Interactive Components</h2>
+        </SpotlightCard>
+      </AnimatedContent>
     </div>
   </div>
 </template>

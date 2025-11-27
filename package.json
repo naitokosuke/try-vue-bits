@@ -14,6 +14,8 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
+    "gsap": "^3.13.0",
+    "ogl": "^1.0.11",
     "three": "^0.178.0",
     "vue": "^3.5.22"
   },
@@ -21,6 +23,7 @@
     "@tailwindcss/vite": "^4.1.17",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^22.18.11",
+    "@types/three": "^0.181.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
     "npm-run-all2": "^8.0.4",
