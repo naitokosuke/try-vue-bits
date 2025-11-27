@@ -1,1 +1,1 @@
-export { default as SpotlightCard } from './SpotlightCard/SpotlightCard.vue'
+export { default as SpotlightCard } from './SpotlightCard.vue'

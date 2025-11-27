@@ -129,8 +129,7 @@ None を選択します。今回はフォーマッターを使用しません。
 ```
 src/
 └── components/
-    └── SpotlightCard/
-        └── SpotlightCard.vue
+    └── SpotlightCard.vue
 ```
 
 ## Full CLI Setup
@@ -257,8 +256,7 @@ src/
 └── components/
     └── vue-bits/
         ├── index.ts
-        └── SpotlightCard/
-            └── SpotlightCard.vue
+        └── SpotlightCard.vue
 ```
 
 - Vue Bits のコンポーネントとプロジェクト独自のコンポーネントを明確に分離できる
@@ -282,7 +280,7 @@ src/
 `src/components/vue-bits/index.ts` を作成し、全コンポーネントをエクスポートします。
 
 ```ts
-export { default as SpotlightCard } from './SpotlightCard/SpotlightCard.vue'
+export { default as SpotlightCard } from './SpotlightCard.vue'
 ```
 
 コンポーネントを追加するたびに、このファイルにエクスポートを追加します。
