@@ -4,6 +4,11 @@ Vue Bits は、アニメーション豊かな Vue コンポーネントのオー
 
 公式サイト: https://vue-bits.dev/
 
+## jsrepo バージョンについて
+
+2025 年 11 月 27 日時点で、Vue Bits は jsrepo v2.x 系のみ対応しています。
+v3 には対応していません。
+
 ## 前提条件
 
 Vue Bits のコンポーネントは Tailwind CSS を使用しています。コンポーネントをインストールする前に、プロジェクトに Tailwind CSS をセットアップしてください。
@@ -35,7 +40,7 @@ CSS ファイル（例: `src/styles.css`）に Tailwind をインポートしま
 ### コマンド形式
 
 ```bash
-npx jsrepo add https://vue-bits.dev/ui/<Category>/<ComponentName>
+npx jsrepo@2.5.2 add https://vue-bits.dev/ui/<Category>/<ComponentName>
 ```
 
 カテゴリは以下の4つです。
@@ -52,7 +57,7 @@ SpotlightCard コンポーネントをインストールする例です。
 #### コマンド実行
 
 ```bash
-npx jsrepo add https://vue-bits.dev/ui/Components/SpotlightCard
+npx jsrepo@2.5.2 add https://vue-bits.dev/ui/Components/SpotlightCard
 ```
 
 #### jsrepo 初期化の確認
@@ -129,8 +134,12 @@ None を選択します。今回はフォーマッターを使用しません。
 ```
 src/
 └── components/
-    └── SpotlightCard.vue
+    └── Components/
+        └── SpotlightCard/
+            └── SpotlightCard.vue
 ```
+
+jsrepo はカテゴリとコンポーネント名でディレクトリをネストして作成します。
 
 ## Full CLI Setup
 
@@ -143,7 +152,7 @@ Vue Bits 公式ドキュメント（https://vue-bits.dev/）の「Full CLI Setup
 #### コマンド実行
 
 ```bash
-npx jsrepo init https://vue-bits.dev/ui
+npx jsrepo@2.5.2 init https://vue-bits.dev/ui
 ```
 
 #### デフォルトインストールパスの指定
@@ -208,7 +217,7 @@ jsrepo.json が作成されます。この設定により、以降のコンポ�
 ### コンポーネント一覧から選択
 
 ```bash
-npx jsrepo add
+npx jsrepo@2.5.2 add
 ```
 
 コマンドを実行すると、利用可能なコンポーネントの一覧が表示されます。
@@ -231,7 +240,7 @@ npx jsrepo add
 ### 特定のコンポーネントを直接指定
 
 ```bash
-npx jsrepo add TextAnimations/ShinyText
+npx jsrepo@2.5.2 add TextAnimations/ShinyText
 ```
 
 コンポーネント名を直接指定してインストールできます。
@@ -241,9 +250,9 @@ npx jsrepo add TextAnimations/ShinyText
 コンポーネントが増えていくと、以下のようなインポートが煩雑になります。
 
 ```ts
-import SpotlightCard from './components/SpotlightCard/SpotlightCard.vue'
-import ShinyText from './components/ShinyText/ShinyText.vue'
-import CountUp from './components/CountUp/CountUp.vue'
+import SpotlightCard from './components/Components/SpotlightCard/SpotlightCard.vue'
+import GradientText from './components/TextAnimations/GradientText/GradientText.vue'
+import CountUp from './components/Animations/CountUp/CountUp.vue'
 // コンポーネントが増えるたびに長いパスを書く必要がある...
 ```
 
@@ -256,7 +265,12 @@ src/
 └── components/
     └── vue-bits/
         ├── index.ts
-        └── SpotlightCard.vue
+        ├── Components/
+        │   └── SpotlightCard/
+        │       └── SpotlightCard.vue
+        └── TextAnimations/
+            └── GradientText/
+                └── GradientText.vue
 ```
 
 - Vue Bits のコンポーネントとプロジェクト独自のコンポーネントを明確に分離できる
@@ -280,7 +294,8 @@ src/
 `src/components/vue-bits/index.ts` を作成し、全コンポーネントをエクスポートします。
 
 ```ts
-export { default as SpotlightCard } from './SpotlightCard.vue'
+export { default as SpotlightCard } from './Components/SpotlightCard/SpotlightCard.vue'
+export { default as GradientText } from './TextAnimations/GradientText/GradientText.vue'
 ```
 
 コンポーネントを追加するたびに、このファイルにエクスポートを追加します。
@@ -289,7 +304,7 @@ export { default as SpotlightCard } from './SpotlightCard.vue'
 
 ```vue
 <script setup lang="ts">
-import { SpotlightCard, ShinyText, CountUp } from './components/vue-bits'
+import { SpotlightCard, GradientText } from './components/vue-bits'
 </script>
 ```
 
