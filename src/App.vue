@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SpotlightCard from './components/SpotlightCard/SpotlightCard.vue'
+import { SpotlightCard } from './components/vue-bits'
 </script>
 
 <template>
