@@ -236,3 +236,63 @@ npx jsrepo add TextAnimations/ShinyText
 ```
 
 コンポーネント名を直接指定してインストールできます。
+
+## 今後を見据えたコンポーネント管理
+
+コンポーネントが増えていくと、以下のようなインポートが煩雑になります。
+
+```ts
+import SpotlightCard from './components/SpotlightCard/SpotlightCard.vue'
+import ShinyText from './components/ShinyText/ShinyText.vue'
+import CountUp from './components/CountUp/CountUp.vue'
+// コンポーネントが増えるたびに長いパスを書く必要がある...
+```
+
+これを解決するため、Vue Bits のコンポーネントを専用ディレクトリにまとめ、`index.ts` から一括エクスポートする構成にします。
+
+### ディレクトリ構成
+
+```
+src/
+└── components/
+    └── vue-bits/
+        ├── index.ts
+        └── SpotlightCard/
+            └── SpotlightCard.vue
+```
+
+- Vue Bits のコンポーネントとプロジェクト独自のコンポーネントを明確に分離できる
+- `index.ts` から1行でまとめてインポートできる
+- コンポーネントの追加・削除時に影響範囲が限定される
+
+### jsrepo.json の設定変更
+
+`jsrepo.json` の `paths` を更新して、コンポーネントが `vue-bits` ディレクトリにインストールされるようにします。
+
+```json
+{
+  "paths": {
+    "*": "./src/components/vue-bits"
+  }
+}
+```
+
+### index.ts の作成
+
+`src/components/vue-bits/index.ts` を作成し、全コンポーネントをエクスポートします。
+
+```ts
+export { default as SpotlightCard } from './SpotlightCard/SpotlightCard.vue'
+```
+
+コンポーネントを追加するたびに、このファイルにエクスポートを追加します。
+
+### 使用方法
+
+```vue
+<script setup lang="ts">
+import { SpotlightCard, ShinyText, CountUp } from './components/vue-bits'
+</script>
+```
+
+1行で複数のコンポーネントをインポートできるようになります。
