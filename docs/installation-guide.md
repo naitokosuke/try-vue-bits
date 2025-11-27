@@ -145,28 +145,30 @@ jsrepo はカテゴリとコンポーネント名でディレクトリをネス�
 
 一部のコンポーネントは外部ライブラリを必要とします。インストール時に依存関係のインストールを確認されるので、Yes を選択してください。
 
-### Three.js を使用するコンポーネント
-
-```bash
-npx jsrepo@2.5.2 add Animations/GhostCursor
-```
-
-依存関係のインストール確認が表示されます。
-
 ```
 ◆  Would you like to install dependencies?
 │  ● Yes / ○ No
 ```
 
-Yes を選択すると、`three` パッケージが自動的にインストールされます。
+Yes を選択すると、必要なパッケージが自動的にインストールされます。
 
-### GSAP を使用するコンポーネント
+### Three.js（three）
+
+```bash
+npx jsrepo@2.5.2 add Animations/GhostCursor
+```
+
+### GSAP（gsap）
 
 ```bash
 npx jsrepo@2.5.2 add Animations/AnimatedContent
 ```
 
-Yes を選択すると、`gsap` パッケージが自動的にインストールされます。
+### OGL（ogl）
+
+```bash
+npx jsrepo@2.5.2 add Backgrounds/Iridescence
+```
 
 ## Full CLI Setup
 
